@@ -11,7 +11,7 @@ package demo.socket.stream;
 import java.net.*;
 import java.io.*;
 
-public class TCPClient {
+public class TCPTesterClient {
 
 	private Socket s;
 	private int clientId = 0;
@@ -24,10 +24,10 @@ public class TCPClient {
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
-	public TCPClient(InetSocketAddress isa) throws IOException{
+	public TCPTesterClient(InetSocketAddress isa) throws IOException{
 		s = new Socket(isa.getAddress(), isa.getPort());
 		out = new ObjectOutputStream(s.getOutputStream());
-		clientId = TCPServer.id++; 
+		clientId = TCPTesterServer.id++; 
 		ClientThread clientThread = new ClientThread(s);
 		clientThread.start();
 	}

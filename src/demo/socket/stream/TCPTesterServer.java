@@ -11,14 +11,14 @@ package demo.socket.stream;
 import java.net.*;
 import java.io.*;
 
-public class TCPServer {
+public class TCPTesterServer {
 
 	static final int SERVERPORT = 1300;
 	static final String INET_ADDRESS = "127.0.0.1";
 	static int id = 0; // client id
 	private static ServerSocket serverSocket;
 
-	public TCPServer() throws IOException {
+	public TCPTesterServer() throws IOException {
 		serverSocket = new ServerSocket();
 	}
 
@@ -28,7 +28,7 @@ public class TCPServer {
 	 * @param localPort local port on which socket should be started
 	 * @throws IOException
 	 */
-	public TCPServer(int localPort) throws IOException {
+	public TCPTesterServer(int localPort) throws IOException {
 		serverSocket = new ServerSocket(localPort);
 	}
 
@@ -40,7 +40,7 @@ public class TCPServer {
 	 * @param backlog a positive integer, if = 0, default value is attributed
 	 * @throws IOException
 	 */
-	public TCPServer(int localPort, int backlog, InetAddress localAddress) throws IOException {
+	public TCPTesterServer(int localPort, int backlog, InetAddress localAddress) throws IOException {
 		serverSocket = new ServerSocket(localPort, backlog, localAddress);
 	}
 
@@ -50,7 +50,7 @@ public class TCPServer {
 	 * @param isa InetSocketAddress including ip and port number on which socket should be started
 	 * @throws IOException
 	 */
-	public TCPServer(InetSocketAddress isa, int backlog) throws IOException {
+	public TCPTesterServer(InetSocketAddress isa, int backlog) throws IOException {
 		serverSocket = new ServerSocket(isa.getPort(), backlog, isa.getAddress());
 	}
 
@@ -69,7 +69,7 @@ public class TCPServer {
 		try{
 			InetAddress ia = InetAddress.getByName(INET_ADDRESS);
 			InetSocketAddress isa = new InetSocketAddress(ia, SERVERPORT);
-			new TCPServer(isa, 0); // creating tcp server with default backlog (0)
+			new TCPTesterServer(isa, 0); // creating tcp server with default backlog (0)
 			setStatus("Server Started!");
 			while (true) {
 				setStatus("Server waiting for connections.");

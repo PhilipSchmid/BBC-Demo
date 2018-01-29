@@ -23,7 +23,7 @@ public class TCPClientGUI extends Frame implements ActionListener {
   final static String SEND         = "Send";
 
   InetSocketAddress   isa;
-  TCPClient           client;
+  TCPTesterClient           client;
   TextField           hostField;
   Label               hostLabel;
   TextField           portField;
@@ -124,7 +124,7 @@ public class TCPClientGUI extends Frame implements ActionListener {
 	InetAddress ia = InetAddress.getByName(hostField.getText());
 	int port = Integer.parseInt(portField.getText());
 	isa = new InetSocketAddress(ia, port);
-	client = new TCPClient(isa);
+	client = new TCPTesterClient(isa);
 	setGUIconnected(true);
 	setStatus("Socket creation OK.");
       } catch (UnknownHostException e) {
