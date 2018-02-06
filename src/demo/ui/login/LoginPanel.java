@@ -34,10 +34,12 @@ public class LoginPanel extends JPanel {
 		usernameLabel = new JLabel("Username");
 		passwordLabel = new JLabel("Password");
 		loginLabel = new JLabel("Login");
-		loginLabel.setFont(new Font("Serif", Font.BOLD, 28));
+		loginLabel.setFont(new Font("Arial", Font.BOLD, 28));
 
 		username = new JTextField(15);
 		password = new JPasswordField(20);
+		username.setText("admin");
+		password.setText("password");
 
 		login = new JButton("Login");
 		cancel = new JButton("Cancel");
@@ -100,10 +102,10 @@ public class LoginPanel extends JPanel {
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				String un = username.getText();
-				String pa = new String(password.getPassword());
+				String pa = new String(password.getPassword()).trim();
 				System.out.println("Login clicked");
-
-				if ((un.equals("user")) && (pa.equals("password"))) {
+				
+				if ((un.equals("admin")) && (pa.equals("password"))) {
 					System.out.println("Login successful");
 					frame.initWelcomeScreen();
 				}
