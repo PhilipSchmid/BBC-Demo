@@ -8,7 +8,7 @@ public class GenericMethods {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(GenericMethods.random("Bigger", "Smaller"));
+		System.out.println(GenericMethods.random("Aufstehen", "Weiterschlafen"));
 	}
 
 }
